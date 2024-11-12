@@ -38,7 +38,7 @@
                     <Input type="text" id="title" autocomplete="organization-title"></Input>
                 </div>
                 <div class="flex flex-col gap-1.5">
-                    <Label for="email">Email</Label>
+                    <Label for="email">Music Academy Email</Label>
                     <Input type="email" id="email" autocomplete="work email"></Input>
                 </div>
                 <div class="flex flex-col gap-1.5">
@@ -46,7 +46,8 @@
                     <Input type="text" id="officePhone" autocomplete="work tel-national"></Input>
                 </div>
                 <div class="flex flex-col gap-1.5">
-                    <Label for="cellPhone">Cell Phone</Label>
+                    <Label for="cellPhone">Cell Phone <span
+                            class="pl-1 italic text-muted-foreground text-sm">optional</span></Label>
                     <Input type="text" id="cellPhone" autocomplete="mobile tel-national"></Input>
                 </div>
             </div>
