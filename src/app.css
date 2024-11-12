@@ -70,6 +70,9 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply min-h-screen bg-background text-foreground font-sans antialiased overflow-visible pointer-events-auto;
+  }
+  div#app {
+    @apply bg-background relative flex min-h-screen flex-col;
   }
 }
