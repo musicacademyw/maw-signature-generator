@@ -28,6 +28,7 @@
     "bits-ui": "^1.0.0-next.51",
     "clsx": "^2.1.1",
     "lucide-svelte": "^0.456.0",
+    "maska": "^3.0.3",
     "paneforge": "^1.0.0-next.1",
     "svelte": "^5.1.3",
     "svelte-check": "^4.0.5",
