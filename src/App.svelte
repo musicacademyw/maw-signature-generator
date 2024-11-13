@@ -21,6 +21,8 @@
         cellPhone: '',
     });
 
+    let enableEmail = $state(false);
+
     let signature = $derived.by(() => {
         let html: string = '<div dir="auto" style="font-family: Verdana, sans-serif; font-size: 10pt; color: black;">';
         let content: string[] = [];
@@ -36,8 +38,8 @@
         content.push(`<span>1070 Fairway Road</span>`);
         content.push(`<span>Santa Barbara, CA 93108</span>`);
 
-        // Email (disabled to match current brand guide)
-        // user.email && content.push(`<span>Email / <a style="color: black; text-decoration: none;" href="mailto:${user.email}">${user.email}</a></span>`);
+        // Email
+        (enableEmail && user.email) && content.push(`<span>Email / <a style="color: black; text-decoration: none;" href="mailto:${user.email}">${user.email}</a></span>`);
 
         // Phone Numbers
         user.officePhone && content.push(`<span>Office / <a style="color: black; text-decoration: none;" href="tel:+1${user.officePhone.trim().replace('-', '')}">${user.officePhone}</a></span>`);
@@ -58,7 +60,7 @@
         navigator.clipboard.write([clipboardItem]).then(
             () => {
                 toast.success('Copied signature to clipboard!');
-            }).catch((err) => {
+            }).catch(() => {
             toast.error('Error copying to clipboard. Please try again.');
         });
     }
@@ -114,10 +116,12 @@
                     <Label for="title">Job Title</Label>
                     <Input type="text" id="title" autocomplete="organization-title" bind:value={user.title}></Input>
                 </div>
-                <div class="flex flex-col gap-1.5">
-                    <Label for="email">Music Academy Email</Label>
-                    <Input type="email" id="email" autocomplete="work email" bind:value={user.email}></Input>
-                </div>
+                {#if enableEmail}
+                    <div class="flex flex-col gap-1.5">
+                        <Label for="email">Music Academy Email</Label>
+                        <Input type="email" id="email" autocomplete="work email" bind:value={user.email}></Input>
+                    </div>
+                {/if}
                 <div class="flex flex-col gap-1.5">
                     <Label for="officePhone">Office Phone</Label>
                     <PhoneInput type="text" id="officePhone" autocomplete="work tel-national"
